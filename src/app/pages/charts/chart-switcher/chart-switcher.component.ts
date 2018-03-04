@@ -548,7 +548,6 @@ export class ChartSwitcherComponent implements OnInit {
     setTimeout(() => {
       this.reload = true;
       setTimeout(() => {
-
         document.getElementById('stackbar').click();
       }, 100);
     }, 100);

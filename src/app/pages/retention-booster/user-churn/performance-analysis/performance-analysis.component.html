@@ -1,12 +1,17 @@
-
-<nb-tabset>
-  <nb-tab tabTitle="Overview">
-    <performance-analysis-overview></performance-analysis-overview>
-  </nb-tab>
-  <nb-tab tabTitle="Origins Basis">
-    <performance-analysis-user-origin-basis></performance-analysis-user-origin-basis>
-  </nb-tab>
-  <nb-tab tabTitle="Behavior Basis">
-    <performance-analysis-user-behavior-basis></performance-analysis-user-behavior-basis>
-  </nb-tab>
-</nb-tabset>
+<ngb-tabset>
+  <ngb-tab title="Overview">
+    <ng-template ngbTabContent>
+      <performance-analysis-overview></performance-analysis-overview>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Origin Basis">
+    <ng-template ngbTabContent>
+        <performance-analysis-user-origin-basis></performance-analysis-user-origin-basis>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Behavior Basis">
+    <ng-template ngbTabContent>
+        <performance-analysis-user-behavior-basis></performance-analysis-user-behavior-basis>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
