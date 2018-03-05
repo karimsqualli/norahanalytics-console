@@ -218,6 +218,7 @@ export class ChartSwitcherComponent implements OnInit {
       labels: labels,
       datasets: datasets,
     };
+
   }
 
   setChartLineData(){

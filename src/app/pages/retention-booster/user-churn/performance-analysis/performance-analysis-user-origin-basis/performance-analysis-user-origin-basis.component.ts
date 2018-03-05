@@ -20,7 +20,7 @@ export class PerformanceAnalysisUserOriginBasisComponent implements OnInit {
     });
     this.http.get('../../../json/new/editednew_region-aggr-format.json').subscribe((data: any) => {
       this.region = data.Region;
-      // console.log(data.Region)
+      console.log(data.Region)
     });
     this.http.get('../../../json/new/editednew_mobiles-aggr-format.json').subscribe((data: any) => {
       this.mobile = data.Mobile;

@@ -228,5 +228,25 @@ cursor: pointer;
   width: 40%;
 }
 .column-data{
-  height: 60px;
+  height: 42px;
+}
+
+
+
+.header-table-smart .column .prise-range {
+  & .max-range, & .min-range {
+    height: 42px;
+    line-height: 42px;
+    padding-top: 0;
+  }
+}
+
+.header-table-smart .column .range-header {
+  height: 42px;
+  line-height: 42px;
+  padding-top: 0;
+}
+
+.row-table-smart .row-table-item {
+  height: 42px !important;
 }

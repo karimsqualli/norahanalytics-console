@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row" *ngIf="data">
     <div class="col-sm-12 col-md-6 col-lg-3 pl-2 pr-2">
         <nb-card>
             <div class="details">
                 <div class="status">active users</div>
-                <div class="title">33,584</div>
+                <div class="title">{{data.top_stats.active_users}}</div>
             </div>
         </nb-card>
     </div>
@@ -11,7 +11,7 @@
         <nb-card>
             <div class="details">
                 <div class="status">Users predicted to churn</div>
-                <div class="title">20,854</div>
+                <div class="title">{{data.top_stats.predicted_to_churn}}</div>
             </div>
         </nb-card>
     </div>
@@ -19,7 +19,7 @@
         <nb-card>
             <div class="details">
                 <div class="status">Churned users</div>
-                <div class="title">15,046</div>
+                <div class="title">{{data.top_stats.churned}}</div>
             </div>
         </nb-card>
     </div>
@@ -27,7 +27,7 @@
         <nb-card>
             <div class="details">
                 <div class="status">Accuracy</div>
-                <div class="title">76.18%</div>
+                <div class="title">{{data.top_stats.accuracy}}</div>
             </div>
         </nb-card>
     </div>

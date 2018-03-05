@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnDestroy} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { HttpClient } from '@angular/common/http';
 
 declare var d3;
 declare var venn;
@@ -84,7 +85,7 @@ export class ClassificationDiagChartComponent implements OnDestroy, AfterViewIni
   colorScheme: any;
   themeSubscription: any;
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService, private http: HttpClient) {
 
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
       const colors: any = config.variables;
@@ -96,14 +97,19 @@ export class ClassificationDiagChartComponent implements OnDestroy, AfterViewIni
 
   ngAfterViewInit(){
     // setTimeout(() => {
-    console.log(2)
 // define sets and set set intersections
-      var sets = [ {sets: ['Predicted Churn'], size: 20854},
-        {sets: ['Observed Churn'], size: 15046},
-        {sets: ['Predicted Churn','Observed Churn'], size: 13712}];
 
-      var chart = venn.VennDiagram().width(500).height(300);;
-      d3.select("#venn").datum(sets).call(chart);
+  this.http.get('../../../json/churn-predictions/simple_churn_prediction_results.json').subscribe((data: any) => {
+    
+    let conf = data.confusion_matrix;
+    var sets = [ {sets: ['Predicted Churn'], size: +conf.predicted_churn + conf.predicted_notChurn},
+          {sets: ['Observed Churn'], size: +conf.predicted_churn +  conf.notPredicted_churn},
+          {sets: ['Predicted Churn','Observed Churn'], size: +conf.predicted_churn}];
+
+        var chart = venn.VennDiagram().width(500).height(300);;
+        d3.select("#venn").datum(sets).call(chart);
+  });
+      
 
 
     // }, 5000);

@@ -507,7 +507,7 @@ export class CountryComponent implements OnDestroy {
             scaleLimit: {
               min: 1,
               max: 3,
-            }
+            },
             itemStyle: {
               emphasis: { label: { show: true } }
             },
